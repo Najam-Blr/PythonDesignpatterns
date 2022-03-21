@@ -1,0 +1,26 @@
+class SingletonClass:
+  __intance = None 
+  
+  def __init__(self):
+     if SingletonClass.__intance is None:
+         SingletonClass.__intance = self 
+     else:
+         raise Exception("We cannot create an another object of SingletonClass()")
+     
+  @staticmethod
+  def get_instance():
+      if SingletonClass.__intance is None:
+         if not SingletonClass.__intance:
+            SingletonClass()
+      return SingletonClass.__intance
+
+if __name__ == '__main__':
+  instance1= SingletonClass()
+  print(instance1)
+  instance2 = SingletonClass.get_instance()
+  print(instance2)
+  
+  #User Defined Exception is thrown  
+  instance3 = SingletonClass()
+  print(instance3)
+  
